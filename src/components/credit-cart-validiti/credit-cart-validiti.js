@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+import MoonAlgorithm from "../libs/MoonAlgorithm";
 
 export default class CreditCartValiditi {
   constructor() {
@@ -20,10 +21,7 @@ export default class CreditCartValiditi {
       if (e.target.value[0]) {
         this.selectLogo(+e.target.value[0]);
       }
-      if (
-        +e.target.value.length === 16 &&
-        this.moonAlgorithm(+e.target.value)
-      ) {
+      if (+e.target.value.length === 16 && MoonAlgorithm(+e.target.value)) {
         this.button.disabled = false;
         this.button.classList.add("valid");
       } else {
@@ -55,22 +53,5 @@ export default class CreditCartValiditi {
     } else if (number === 6) {
       addActiv("discover");
     }
-  }
-
-  /* eslint-disable no-bitwise */
-  moonAlgorithm(setValue) {
-    let ch = 0;
-    const num = String(setValue).replace(/\D/g, "");
-    const isOdd = num.length % 2 !== 0;
-
-    if (num === "") return false;
-
-    for (let i = 0; i < num.length; i++) {
-      let n = parseInt(num[i], 10);
-
-      ch += (isOdd | 0) === i % 2 && (n *= 2) > 9 ? n - 9 : n;
-    }
-
-    return ch % 10 === 0;
   }
 }
