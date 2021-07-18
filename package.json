@@ -1,5 +1,5 @@
 {
-  "name": "Test_Homeworks",
+  "name": "TestHomeworks",
   "version": "1.0.0",
   "description": "homeworks",
   "main": "index.js",
@@ -11,8 +11,7 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint ./src",
     "test": "jest --coverage",
-    "ci": "start-test :8080 test",
-    "e2e": "jest --testPathPattern=./e2e/ --runInBand"
+    "ci": "start-test :9000 test"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
