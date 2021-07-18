@@ -27,4 +27,13 @@ describe("cart form", () => {
       await page.waitForSelector(".input-row__button.valid");
     });
   });
+  describe("InValid cart", () => {
+    test("InValid cart and valid selector buttom", async () => {
+      await page.goto(baseUrl);
+      const widget = await page.$(".credit-cart-validiti");
+      const input = await widget.$(".input-row__input");
+      await input.type("5480158084261926");
+      await page.waitForSelector(".input-row__button.inValid");
+    });
+  });
 });

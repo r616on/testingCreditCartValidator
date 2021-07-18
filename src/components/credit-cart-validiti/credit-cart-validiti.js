@@ -24,7 +24,11 @@ export default class CreditCartValiditi {
       if (+e.target.value.length === 16 && MoonAlgorithm(+e.target.value)) {
         this.button.disabled = false;
         this.button.classList.add("valid");
+        if (this.button.classList.contains("inValid")) {
+          this.button.classList.remove("inValid");
+        }
       } else {
+        this.button.classList.add("inValid");
         this.button.disabled = true;
         if (this.button.classList.contains("valid")) {
           this.button.classList.remove("valid");
